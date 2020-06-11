@@ -1,0 +1,344 @@
+Namespace(batch_size=64, data_base='/mnt/ramdisk/ImageNet', ft_model_path='mobilenetv2-pruned.pth', gpu_id='1', lr=0.001, lr_decay_epoch=10, num_epochs=0, print_freq=20, start_epoch=0, weight_decay=0.0001)
+
+[Phase 2] : Model setup
+===============================================================================================
+                                         Kernel Shape       Output Shape  \
+Layer                                                                      
+0_features.0.Conv2d_0                   [3, 32, 3, 3]  [1, 32, 112, 112]   
+1_features.0.BatchNorm2d_1                       [32]  [1, 32, 112, 112]   
+2_features.0.ReLU6_2                                -  [1, 32, 112, 112]   
+3_features.1.conv.Conv2d_0              [1, 32, 3, 3]  [1, 32, 112, 112]   
+4_features.1.conv.BatchNorm2d_1                  [32]  [1, 32, 112, 112]   
+5_features.1.conv.ReLU6_2                           -  [1, 32, 112, 112]   
+6_features.1.conv.Conv2d_3             [32, 16, 1, 1]  [1, 16, 112, 112]   
+7_features.1.conv.BatchNorm2d_4                  [16]  [1, 16, 112, 112]   
+8_features.2.conv.Conv2d_0             [16, 61, 1, 1]  [1, 61, 112, 112]   
+9_features.2.conv.BatchNorm2d_1                  [61]  [1, 61, 112, 112]   
+10_features.2.conv.ReLU6_2                          -  [1, 61, 112, 112]   
+11_features.2.conv.Conv2d_3             [1, 61, 3, 3]    [1, 61, 56, 56]   
+12_features.2.conv.BatchNorm2d_4                 [61]    [1, 61, 56, 56]   
+13_features.2.conv.ReLU6_5                          -    [1, 61, 56, 56]   
+14_features.2.conv.Conv2d_6            [61, 24, 1, 1]    [1, 24, 56, 56]   
+15_features.2.conv.BatchNorm2d_7                 [24]    [1, 24, 56, 56]   
+16_features.3.conv.Conv2d_0            [24, 92, 1, 1]    [1, 92, 56, 56]   
+17_features.3.conv.BatchNorm2d_1                 [92]    [1, 92, 56, 56]   
+18_features.3.conv.ReLU6_2                          -    [1, 92, 56, 56]   
+19_features.3.conv.Conv2d_3             [1, 92, 3, 3]    [1, 92, 56, 56]   
+20_features.3.conv.BatchNorm2d_4                 [92]    [1, 92, 56, 56]   
+21_features.3.conv.ReLU6_5                          -    [1, 92, 56, 56]   
+22_features.3.conv.Conv2d_6            [92, 24, 1, 1]    [1, 24, 56, 56]   
+23_features.3.conv.BatchNorm2d_7                 [24]    [1, 24, 56, 56]   
+24_features.4.conv.Conv2d_0            [24, 92, 1, 1]    [1, 92, 56, 56]   
+25_features.4.conv.BatchNorm2d_1                 [92]    [1, 92, 56, 56]   
+26_features.4.conv.ReLU6_2                          -    [1, 92, 56, 56]   
+27_features.4.conv.Conv2d_3             [1, 92, 3, 3]    [1, 92, 28, 28]   
+28_features.4.conv.BatchNorm2d_4                 [92]    [1, 92, 28, 28]   
+29_features.4.conv.ReLU6_5                          -    [1, 92, 28, 28]   
+30_features.4.conv.Conv2d_6            [92, 32, 1, 1]    [1, 32, 28, 28]   
+31_features.4.conv.BatchNorm2d_7                 [32]    [1, 32, 28, 28]   
+32_features.5.conv.Conv2d_0           [32, 123, 1, 1]   [1, 123, 28, 28]   
+33_features.5.conv.BatchNorm2d_1                [123]   [1, 123, 28, 28]   
+34_features.5.conv.ReLU6_2                          -   [1, 123, 28, 28]   
+35_features.5.conv.Conv2d_3            [1, 123, 3, 3]   [1, 123, 28, 28]   
+36_features.5.conv.BatchNorm2d_4                [123]   [1, 123, 28, 28]   
+37_features.5.conv.ReLU6_5                          -   [1, 123, 28, 28]   
+38_features.5.conv.Conv2d_6           [123, 32, 1, 1]    [1, 32, 28, 28]   
+39_features.5.conv.BatchNorm2d_7                 [32]    [1, 32, 28, 28]   
+40_features.6.conv.Conv2d_0           [32, 123, 1, 1]   [1, 123, 28, 28]   
+41_features.6.conv.BatchNorm2d_1                [123]   [1, 123, 28, 28]   
+42_features.6.conv.ReLU6_2                          -   [1, 123, 28, 28]   
+43_features.6.conv.Conv2d_3            [1, 123, 3, 3]   [1, 123, 28, 28]   
+44_features.6.conv.BatchNorm2d_4                [123]   [1, 123, 28, 28]   
+45_features.6.conv.ReLU6_5                          -   [1, 123, 28, 28]   
+46_features.6.conv.Conv2d_6           [123, 32, 1, 1]    [1, 32, 28, 28]   
+47_features.6.conv.BatchNorm2d_7                 [32]    [1, 32, 28, 28]   
+48_features.7.conv.Conv2d_0           [32, 124, 1, 1]   [1, 124, 28, 28]   
+49_features.7.conv.BatchNorm2d_1                [124]   [1, 124, 28, 28]   
+50_features.7.conv.ReLU6_2                          -   [1, 124, 28, 28]   
+51_features.7.conv.Conv2d_3            [1, 124, 3, 3]   [1, 124, 14, 14]   
+52_features.7.conv.BatchNorm2d_4                [124]   [1, 124, 14, 14]   
+53_features.7.conv.ReLU6_5                          -   [1, 124, 14, 14]   
+54_features.7.conv.Conv2d_6           [124, 64, 1, 1]    [1, 64, 14, 14]   
+55_features.7.conv.BatchNorm2d_7                 [64]    [1, 64, 14, 14]   
+56_features.8.conv.Conv2d_0           [64, 246, 1, 1]   [1, 246, 14, 14]   
+57_features.8.conv.BatchNorm2d_1                [246]   [1, 246, 14, 14]   
+58_features.8.conv.ReLU6_2                          -   [1, 246, 14, 14]   
+59_features.8.conv.Conv2d_3            [1, 246, 3, 3]   [1, 246, 14, 14]   
+60_features.8.conv.BatchNorm2d_4                [246]   [1, 246, 14, 14]   
+61_features.8.conv.ReLU6_5                          -   [1, 246, 14, 14]   
+62_features.8.conv.Conv2d_6           [246, 64, 1, 1]    [1, 64, 14, 14]   
+63_features.8.conv.BatchNorm2d_7                 [64]    [1, 64, 14, 14]   
+64_features.9.conv.Conv2d_0           [64, 246, 1, 1]   [1, 246, 14, 14]   
+65_features.9.conv.BatchNorm2d_1                [246]   [1, 246, 14, 14]   
+66_features.9.conv.ReLU6_2                          -   [1, 246, 14, 14]   
+67_features.9.conv.Conv2d_3            [1, 246, 3, 3]   [1, 246, 14, 14]   
+68_features.9.conv.BatchNorm2d_4                [246]   [1, 246, 14, 14]   
+69_features.9.conv.ReLU6_5                          -   [1, 246, 14, 14]   
+70_features.9.conv.Conv2d_6           [246, 64, 1, 1]    [1, 64, 14, 14]   
+71_features.9.conv.BatchNorm2d_7                 [64]    [1, 64, 14, 14]   
+72_features.10.conv.Conv2d_0          [64, 246, 1, 1]   [1, 246, 14, 14]   
+73_features.10.conv.BatchNorm2d_1               [246]   [1, 246, 14, 14]   
+74_features.10.conv.ReLU6_2                         -   [1, 246, 14, 14]   
+75_features.10.conv.Conv2d_3           [1, 246, 3, 3]   [1, 246, 14, 14]   
+76_features.10.conv.BatchNorm2d_4               [246]   [1, 246, 14, 14]   
+77_features.10.conv.ReLU6_5                         -   [1, 246, 14, 14]   
+78_features.10.conv.Conv2d_6          [246, 64, 1, 1]    [1, 64, 14, 14]   
+79_features.10.conv.BatchNorm2d_7                [64]    [1, 64, 14, 14]   
+80_features.11.conv.Conv2d_0          [64, 246, 1, 1]   [1, 246, 14, 14]   
+81_features.11.conv.BatchNorm2d_1               [246]   [1, 246, 14, 14]   
+82_features.11.conv.ReLU6_2                         -   [1, 246, 14, 14]   
+83_features.11.conv.Conv2d_3           [1, 246, 3, 3]   [1, 246, 14, 14]   
+84_features.11.conv.BatchNorm2d_4               [246]   [1, 246, 14, 14]   
+85_features.11.conv.ReLU6_5                         -   [1, 246, 14, 14]   
+86_features.11.conv.Conv2d_6          [246, 96, 1, 1]    [1, 96, 14, 14]   
+87_features.11.conv.BatchNorm2d_7                [96]    [1, 96, 14, 14]   
+88_features.12.conv.Conv2d_0          [96, 369, 1, 1]   [1, 369, 14, 14]   
+89_features.12.conv.BatchNorm2d_1               [369]   [1, 369, 14, 14]   
+90_features.12.conv.ReLU6_2                         -   [1, 369, 14, 14]   
+91_features.12.conv.Conv2d_3           [1, 369, 3, 3]   [1, 369, 14, 14]   
+92_features.12.conv.BatchNorm2d_4               [369]   [1, 369, 14, 14]   
+93_features.12.conv.ReLU6_5                         -   [1, 369, 14, 14]   
+94_features.12.conv.Conv2d_6          [369, 96, 1, 1]    [1, 96, 14, 14]   
+95_features.12.conv.BatchNorm2d_7                [96]    [1, 96, 14, 14]   
+96_features.13.conv.Conv2d_0          [96, 369, 1, 1]   [1, 369, 14, 14]   
+97_features.13.conv.BatchNorm2d_1               [369]   [1, 369, 14, 14]   
+98_features.13.conv.ReLU6_2                         -   [1, 369, 14, 14]   
+99_features.13.conv.Conv2d_3           [1, 369, 3, 3]   [1, 369, 14, 14]   
+100_features.13.conv.BatchNorm2d_4              [369]   [1, 369, 14, 14]   
+101_features.13.conv.ReLU6_5                        -   [1, 369, 14, 14]   
+102_features.13.conv.Conv2d_6         [369, 96, 1, 1]    [1, 96, 14, 14]   
+103_features.13.conv.BatchNorm2d_7               [96]    [1, 96, 14, 14]   
+104_features.14.conv.Conv2d_0         [96, 369, 1, 1]   [1, 369, 14, 14]   
+105_features.14.conv.BatchNorm2d_1              [369]   [1, 369, 14, 14]   
+106_features.14.conv.ReLU6_2                        -   [1, 369, 14, 14]   
+107_features.14.conv.Conv2d_3          [1, 369, 3, 3]     [1, 369, 7, 7]   
+108_features.14.conv.BatchNorm2d_4              [369]     [1, 369, 7, 7]   
+109_features.14.conv.ReLU6_5                        -     [1, 369, 7, 7]   
+110_features.14.conv.Conv2d_6        [369, 160, 1, 1]     [1, 160, 7, 7]   
+111_features.14.conv.BatchNorm2d_7              [160]     [1, 160, 7, 7]   
+112_features.15.conv.Conv2d_0        [160, 615, 1, 1]     [1, 615, 7, 7]   
+113_features.15.conv.BatchNorm2d_1              [615]     [1, 615, 7, 7]   
+114_features.15.conv.ReLU6_2                        -     [1, 615, 7, 7]   
+115_features.15.conv.Conv2d_3          [1, 615, 3, 3]     [1, 615, 7, 7]   
+116_features.15.conv.BatchNorm2d_4              [615]     [1, 615, 7, 7]   
+117_features.15.conv.ReLU6_5                        -     [1, 615, 7, 7]   
+118_features.15.conv.Conv2d_6        [615, 160, 1, 1]     [1, 160, 7, 7]   
+119_features.15.conv.BatchNorm2d_7              [160]     [1, 160, 7, 7]   
+120_features.16.conv.Conv2d_0        [160, 615, 1, 1]     [1, 615, 7, 7]   
+121_features.16.conv.BatchNorm2d_1              [615]     [1, 615, 7, 7]   
+122_features.16.conv.ReLU6_2                        -     [1, 615, 7, 7]   
+123_features.16.conv.Conv2d_3          [1, 615, 3, 3]     [1, 615, 7, 7]   
+124_features.16.conv.BatchNorm2d_4              [615]     [1, 615, 7, 7]   
+125_features.16.conv.ReLU6_5                        -     [1, 615, 7, 7]   
+126_features.16.conv.Conv2d_6        [615, 160, 1, 1]     [1, 160, 7, 7]   
+127_features.16.conv.BatchNorm2d_7              [160]     [1, 160, 7, 7]   
+128_features.17.conv.Conv2d_0        [160, 625, 1, 1]     [1, 625, 7, 7]   
+129_features.17.conv.BatchNorm2d_1              [625]     [1, 625, 7, 7]   
+130_features.17.conv.ReLU6_2                        -     [1, 625, 7, 7]   
+131_features.17.conv.Conv2d_3          [1, 625, 3, 3]     [1, 625, 7, 7]   
+132_features.17.conv.BatchNorm2d_4              [625]     [1, 625, 7, 7]   
+133_features.17.conv.ReLU6_5                        -     [1, 625, 7, 7]   
+134_features.17.conv.Conv2d_6        [625, 320, 1, 1]     [1, 320, 7, 7]   
+135_features.17.conv.BatchNorm2d_7              [320]     [1, 320, 7, 7]   
+136_features.18.Conv2d_0            [320, 1280, 1, 1]    [1, 1280, 7, 7]   
+137_features.18.BatchNorm2d_1                  [1280]    [1, 1280, 7, 7]   
+138_features.18.ReLU6_2                             -    [1, 1280, 7, 7]   
+139_avgpool                                         -    [1, 1280, 1, 1]   
+140_classifier                           [1280, 1000]          [1, 1000]   
+
+                                     Params Mult-Adds  
+Layer                                                  
+0_features.0.Conv2d_0                   864   10.838M  
+1_features.0.BatchNorm2d_1               64        32  
+2_features.0.ReLU6_2                      -         -  
+3_features.1.conv.Conv2d_0              288  3.61267M  
+4_features.1.conv.BatchNorm2d_1          64        32  
+5_features.1.conv.ReLU6_2                 -         -  
+6_features.1.conv.Conv2d_3              512  6.42253M  
+7_features.1.conv.BatchNorm2d_4          32        16  
+8_features.2.conv.Conv2d_0              976  12.2429M  
+9_features.2.conv.BatchNorm2d_1         122        61  
+10_features.2.conv.ReLU6_2                -         -  
+11_features.2.conv.Conv2d_3             549  1.72166M  
+12_features.2.conv.BatchNorm2d_4        122        61  
+13_features.2.conv.ReLU6_5                -         -  
+14_features.2.conv.Conv2d_6          1.464k   4.5911M  
+15_features.2.conv.BatchNorm2d_7         48        24  
+16_features.3.conv.Conv2d_0          2.208k  6.92429M  
+17_features.3.conv.BatchNorm2d_1        184        92  
+18_features.3.conv.ReLU6_2                -         -  
+19_features.3.conv.Conv2d_3             828  2.59661M  
+20_features.3.conv.BatchNorm2d_4        184        92  
+21_features.3.conv.ReLU6_5                -         -  
+22_features.3.conv.Conv2d_6          2.208k  6.92429M  
+23_features.3.conv.BatchNorm2d_7         48        24  
+24_features.4.conv.Conv2d_0          2.208k  6.92429M  
+25_features.4.conv.BatchNorm2d_1        184        92  
+26_features.4.conv.ReLU6_2                -         -  
+27_features.4.conv.Conv2d_3             828  649.152k  
+28_features.4.conv.BatchNorm2d_4        184        92  
+29_features.4.conv.ReLU6_5                -         -  
+30_features.4.conv.Conv2d_6          2.944k   2.3081M  
+31_features.4.conv.BatchNorm2d_7         64        32  
+32_features.5.conv.Conv2d_0          3.936k  3.08582M  
+33_features.5.conv.BatchNorm2d_1        246       123  
+34_features.5.conv.ReLU6_2                -         -  
+35_features.5.conv.Conv2d_3          1.107k  867.888k  
+36_features.5.conv.BatchNorm2d_4        246       123  
+37_features.5.conv.ReLU6_5                -         -  
+38_features.5.conv.Conv2d_6          3.936k  3.08582M  
+39_features.5.conv.BatchNorm2d_7         64        32  
+40_features.6.conv.Conv2d_0          3.936k  3.08582M  
+41_features.6.conv.BatchNorm2d_1        246       123  
+42_features.6.conv.ReLU6_2                -         -  
+43_features.6.conv.Conv2d_3          1.107k  867.888k  
+44_features.6.conv.BatchNorm2d_4        246       123  
+45_features.6.conv.ReLU6_5                -         -  
+46_features.6.conv.Conv2d_6          3.936k  3.08582M  
+47_features.6.conv.BatchNorm2d_7         64        32  
+48_features.7.conv.Conv2d_0          3.968k  3.11091M  
+49_features.7.conv.BatchNorm2d_1        248       124  
+50_features.7.conv.ReLU6_2                -         -  
+51_features.7.conv.Conv2d_3          1.116k  218.736k  
+52_features.7.conv.BatchNorm2d_4        248       124  
+53_features.7.conv.ReLU6_5                -         -  
+54_features.7.conv.Conv2d_6          7.936k  1.55546M  
+55_features.7.conv.BatchNorm2d_7        128        64  
+56_features.8.conv.Conv2d_0         15.744k  3.08582M  
+57_features.8.conv.BatchNorm2d_1        492       246  
+58_features.8.conv.ReLU6_2                -         -  
+59_features.8.conv.Conv2d_3          2.214k  433.944k  
+60_features.8.conv.BatchNorm2d_4        492       246  
+61_features.8.conv.ReLU6_5                -         -  
+62_features.8.conv.Conv2d_6         15.744k  3.08582M  
+63_features.8.conv.BatchNorm2d_7        128        64  
+64_features.9.conv.Conv2d_0         15.744k  3.08582M  
+65_features.9.conv.BatchNorm2d_1        492       246  
+66_features.9.conv.ReLU6_2                -         -  
+67_features.9.conv.Conv2d_3          2.214k  433.944k  
+68_features.9.conv.BatchNorm2d_4        492       246  
+69_features.9.conv.ReLU6_5                -         -  
+70_features.9.conv.Conv2d_6         15.744k  3.08582M  
+71_features.9.conv.BatchNorm2d_7        128        64  
+72_features.10.conv.Conv2d_0        15.744k  3.08582M  
+73_features.10.conv.BatchNorm2d_1       492       246  
+74_features.10.conv.ReLU6_2               -         -  
+75_features.10.conv.Conv2d_3         2.214k  433.944k  
+76_features.10.conv.BatchNorm2d_4       492       246  
+77_features.10.conv.ReLU6_5               -         -  
+78_features.10.conv.Conv2d_6        15.744k  3.08582M  
+79_features.10.conv.BatchNorm2d_7       128        64  
+80_features.11.conv.Conv2d_0        15.744k  3.08582M  
+81_features.11.conv.BatchNorm2d_1       492       246  
+82_features.11.conv.ReLU6_2               -         -  
+83_features.11.conv.Conv2d_3         2.214k  433.944k  
+84_features.11.conv.BatchNorm2d_4       492       246  
+85_features.11.conv.ReLU6_5               -         -  
+86_features.11.conv.Conv2d_6        23.616k  4.62874M  
+87_features.11.conv.BatchNorm2d_7       192        96  
+88_features.12.conv.Conv2d_0        35.424k   6.9431M  
+89_features.12.conv.BatchNorm2d_1       738       369  
+90_features.12.conv.ReLU6_2               -         -  
+91_features.12.conv.Conv2d_3         3.321k  650.916k  
+92_features.12.conv.BatchNorm2d_4       738       369  
+93_features.12.conv.ReLU6_5               -         -  
+94_features.12.conv.Conv2d_6        35.424k   6.9431M  
+95_features.12.conv.BatchNorm2d_7       192        96  
+96_features.13.conv.Conv2d_0        35.424k   6.9431M  
+97_features.13.conv.BatchNorm2d_1       738       369  
+98_features.13.conv.ReLU6_2               -         -  
+99_features.13.conv.Conv2d_3         3.321k  650.916k  
+100_features.13.conv.BatchNorm2d_4      738       369  
+101_features.13.conv.ReLU6_5              -         -  
+102_features.13.conv.Conv2d_6       35.424k   6.9431M  
+103_features.13.conv.BatchNorm2d_7      192        96  
+104_features.14.conv.Conv2d_0       35.424k   6.9431M  
+105_features.14.conv.BatchNorm2d_1      738       369  
+106_features.14.conv.ReLU6_2              -         -  
+107_features.14.conv.Conv2d_3        3.321k  162.729k  
+108_features.14.conv.BatchNorm2d_4      738       369  
+109_features.14.conv.ReLU6_5              -         -  
+110_features.14.conv.Conv2d_6        59.04k  2.89296M  
+111_features.14.conv.BatchNorm2d_7      320       160  
+112_features.15.conv.Conv2d_0         98.4k   4.8216M  
+113_features.15.conv.BatchNorm2d_1    1.23k       615  
+114_features.15.conv.ReLU6_2              -         -  
+115_features.15.conv.Conv2d_3        5.535k  271.215k  
+116_features.15.conv.BatchNorm2d_4    1.23k       615  
+117_features.15.conv.ReLU6_5              -         -  
+118_features.15.conv.Conv2d_6         98.4k   4.8216M  
+119_features.15.conv.BatchNorm2d_7      320       160  
+120_features.16.conv.Conv2d_0         98.4k   4.8216M  
+121_features.16.conv.BatchNorm2d_1    1.23k       615  
+122_features.16.conv.ReLU6_2              -         -  
+123_features.16.conv.Conv2d_3        5.535k  271.215k  
+124_features.16.conv.BatchNorm2d_4    1.23k       615  
+125_features.16.conv.ReLU6_5              -         -  
+126_features.16.conv.Conv2d_6         98.4k   4.8216M  
+127_features.16.conv.BatchNorm2d_7      320       160  
+128_features.17.conv.Conv2d_0          100k      4.9M  
+129_features.17.conv.BatchNorm2d_1    1.25k       625  
+130_features.17.conv.ReLU6_2              -         -  
+131_features.17.conv.Conv2d_3        5.625k  275.625k  
+132_features.17.conv.BatchNorm2d_4    1.25k       625  
+133_features.17.conv.ReLU6_5              -         -  
+134_features.17.conv.Conv2d_6          200k      9.8M  
+135_features.17.conv.BatchNorm2d_7      640       320  
+136_features.18.Conv2d_0             409.6k  20.0704M  
+137_features.18.BatchNorm2d_1         2.56k     1.28k  
+138_features.18.ReLU6_2                   -         -  
+139_avgpool                               -         -  
+140_classifier                       1.281M     1.28M  
+-----------------------------------------------------------------------------------------------
+                        Totals
+Mult-Adds             207.925M
+Non-trainable params         0
+Total params          2.86049M
+Trainable params      2.86049M
+===============================================================================================
+model setup success!
+| Preparing data...
+data_loader_success!
+
+[Phase 3] : Model fine tune
+Test: [0/782]	Time 2.699 (2.699)	Loss 0.6713 (0.6713)	Prec@1 87.500 (87.500)	Prec@5 95.312 (95.312)
+Test: [20/782]	Time 0.515 (0.241)	Loss 0.7971 (0.5354)	Prec@1 73.438 (86.012)	Prec@5 96.875 (95.982)
+Test: [40/782]	Time 0.078 (0.202)	Loss 0.4290 (0.7945)	Prec@1 87.500 (79.002)	Prec@5 98.438 (93.864)
+Test: [60/782]	Time 0.058 (0.188)	Loss 1.0436 (0.9249)	Prec@1 76.562 (75.205)	Prec@5 95.312 (92.956)
+Test: [80/782]	Time 0.058 (0.172)	Loss 0.7005 (0.8393)	Prec@1 85.938 (77.894)	Prec@5 92.188 (93.499)
+Test: [100/782]	Time 0.084 (0.173)	Loss 0.6284 (0.8627)	Prec@1 87.500 (77.877)	Prec@5 95.312 (93.317)
+Test: [120/782]	Time 0.069 (0.168)	Loss 1.2763 (0.8069)	Prec@1 71.875 (79.106)	Prec@5 87.500 (93.776)
+Test: [140/782]	Time 0.057 (0.169)	Loss 1.2357 (0.8453)	Prec@1 60.938 (78.025)	Prec@5 92.188 (93.628)
+Test: [160/782]	Time 0.057 (0.167)	Loss 1.0345 (0.8591)	Prec@1 73.438 (77.368)	Prec@5 93.750 (93.643)
+Test: [180/782]	Time 0.893 (0.172)	Loss 0.9157 (0.8598)	Prec@1 70.312 (77.452)	Prec@5 93.750 (93.733)
+Test: [200/782]	Time 0.074 (0.166)	Loss 0.8959 (0.8578)	Prec@1 82.812 (77.371)	Prec@5 92.188 (93.952)
+Test: [220/782]	Time 1.272 (0.174)	Loss 1.8774 (0.8636)	Prec@1 32.812 (77.100)	Prec@5 89.062 (94.033)
+Test: [240/782]	Time 0.058 (0.170)	Loss 0.5705 (0.8567)	Prec@1 84.375 (77.328)	Prec@5 95.312 (94.152)
+Test: [260/782]	Time 0.730 (0.169)	Loss 0.0772 (0.8495)	Prec@1 100.000 (77.568)	Prec@5 100.000 (94.211)
+Test: [280/782]	Time 0.782 (0.169)	Loss 1.2295 (0.8477)	Prec@1 60.938 (77.541)	Prec@5 95.312 (94.267)
+Test: [300/782]	Time 0.057 (0.168)	Loss 0.6693 (0.8565)	Prec@1 78.125 (77.377)	Prec@5 93.750 (94.108)
+Test: [320/782]	Time 0.715 (0.167)	Loss 0.6260 (0.8628)	Prec@1 81.250 (77.268)	Prec@5 95.312 (94.062)
+Test: [340/782]	Time 0.057 (0.167)	Loss 2.0937 (0.8957)	Prec@1 54.688 (76.549)	Prec@5 79.688 (93.727)
+Test: [360/782]	Time 0.064 (0.164)	Loss 1.6928 (0.9225)	Prec@1 48.438 (76.004)	Prec@5 90.625 (93.412)
+Test: [380/782]	Time 0.066 (0.164)	Loss 0.8993 (0.9537)	Prec@1 75.000 (75.349)	Prec@5 90.625 (92.967)
+Test: [400/782]	Time 0.058 (0.164)	Loss 0.7041 (0.9876)	Prec@1 82.812 (74.719)	Prec@5 98.438 (92.550)
+Test: [420/782]	Time 0.058 (0.166)	Loss 0.8122 (1.0061)	Prec@1 78.125 (74.269)	Prec@5 90.625 (92.332)
+Test: [440/782]	Time 0.057 (0.164)	Loss 0.9564 (1.0177)	Prec@1 68.750 (74.125)	Prec@5 90.625 (92.099)
+Test: [460/782]	Time 0.084 (0.167)	Loss 1.8681 (1.0269)	Prec@1 65.625 (74.024)	Prec@5 78.125 (91.950)
+Test: [480/782]	Time 0.058 (0.165)	Loss 1.1472 (1.0363)	Prec@1 75.000 (73.892)	Prec@5 87.500 (91.768)
+Test: [500/782]	Time 0.063 (0.165)	Loss 0.8045 (1.0625)	Prec@1 78.125 (73.291)	Prec@5 95.312 (91.451)
+Test: [520/782]	Time 1.004 (0.166)	Loss 1.3577 (1.0804)	Prec@1 67.188 (72.904)	Prec@5 85.938 (91.231)
+Test: [540/782]	Time 0.056 (0.165)	Loss 2.1292 (1.0928)	Prec@1 48.438 (72.721)	Prec@5 84.375 (91.070)
+Test: [560/782]	Time 0.453 (0.166)	Loss 1.1418 (1.1011)	Prec@1 68.750 (72.588)	Prec@5 92.188 (90.965)
+Test: [580/782]	Time 0.061 (0.164)	Loss 1.5688 (1.1136)	Prec@1 56.250 (72.343)	Prec@5 87.500 (90.768)
+Test: [600/782]	Time 0.317 (0.163)	Loss 0.9910 (1.1254)	Prec@1 82.812 (72.112)	Prec@5 90.625 (90.612)
+Test: [620/782]	Time 0.275 (0.163)	Loss 1.9755 (1.1375)	Prec@1 62.500 (71.913)	Prec@5 84.375 (90.411)
+Test: [640/782]	Time 0.058 (0.162)	Loss 0.9967 (1.1463)	Prec@1 76.562 (71.782)	Prec@5 90.625 (90.289)
+Test: [660/782]	Time 0.058 (0.162)	Loss 2.4653 (1.1621)	Prec@1 53.125 (71.471)	Prec@5 70.312 (90.051)
+Test: [680/782]	Time 0.789 (0.162)	Loss 0.6262 (1.1664)	Prec@1 84.375 (71.340)	Prec@5 98.438 (89.994)
+Test: [700/782]	Time 0.061 (0.161)	Loss 1.1041 (1.1712)	Prec@1 67.188 (71.235)	Prec@5 90.625 (89.910)
+Test: [720/782]	Time 0.524 (0.162)	Loss 1.1354 (1.1817)	Prec@1 71.875 (71.032)	Prec@5 93.750 (89.801)
+Test: [740/782]	Time 0.129 (0.161)	Loss 1.0604 (1.1774)	Prec@1 65.625 (71.076)	Prec@5 98.438 (89.885)
+Test: [760/782]	Time 0.540 (0.161)	Loss 1.1075 (1.1785)	Prec@1 67.188 (71.064)	Prec@5 95.312 (89.871)
+Test: [780/782]	Time 0.057 (0.161)	Loss 2.1239 (1.1713)	Prec@1 32.812 (71.193)	Prec@5 85.938 (89.957)
+ * Prec@1 71.180 Prec@5 89.950
